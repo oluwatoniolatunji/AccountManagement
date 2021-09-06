@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnergyAccountManagement.DataAccess.Tests", "EnergyAccountManagement.DataAccess.Tests\EnergyAccountManagement.DataAccess.Tests.csproj", "{66EC6553-5574-4452-9D17-F1A1277648C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnergyAccountManagement.DataAccess", "EnergyAccountManagement.DataAccess\EnergyAccountManagement.DataAccess.csproj", "{594C53C6-092E-45C9-9DCD-C3419BFC26FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnergyAccountManagement.Service", "EnergyAccountManagement.Service\EnergyAccountManagement.Service.csproj", "{E0A56BE9-F5BF-4233-A5A2-56F03C47E877}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnergyAccountManagement.Service.Tests", "EnergyAccountManagement.Service.Tests\EnergyAccountManagement.Service.Tests.csproj", "{4D39B1B1-195B-4842-81C1-50099D680C60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnergyAccountManagement.Api", "EnergyAccountManagement.Api\EnergyAccountManagement.Api.csproj", "{AAE61290-3C6E-4F62-97A8-30C947C600CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnergyAccountManagement.Api.Integration.Tests", "EnergyAccountManagement.Api.Integration.Tests\EnergyAccountManagement.Api.Integration.Tests.csproj", "{19E31830-2D36-4B74-9309-93650C08AAD6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66EC6553-5574-4452-9D17-F1A1277648C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66EC6553-5574-4452-9D17-F1A1277648C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66EC6553-5574-4452-9D17-F1A1277648C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66EC6553-5574-4452-9D17-F1A1277648C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{594C53C6-092E-45C9-9DCD-C3419BFC26FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{594C53C6-092E-45C9-9DCD-C3419BFC26FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{594C53C6-092E-45C9-9DCD-C3419BFC26FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{594C53C6-092E-45C9-9DCD-C3419BFC26FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0A56BE9-F5BF-4233-A5A2-56F03C47E877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0A56BE9-F5BF-4233-A5A2-56F03C47E877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0A56BE9-F5BF-4233-A5A2-56F03C47E877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0A56BE9-F5BF-4233-A5A2-56F03C47E877}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D39B1B1-195B-4842-81C1-50099D680C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D39B1B1-195B-4842-81C1-50099D680C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D39B1B1-195B-4842-81C1-50099D680C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D39B1B1-195B-4842-81C1-50099D680C60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAE61290-3C6E-4F62-97A8-30C947C600CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE61290-3C6E-4F62-97A8-30C947C600CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE61290-3C6E-4F62-97A8-30C947C600CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE61290-3C6E-4F62-97A8-30C947C600CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19E31830-2D36-4B74-9309-93650C08AAD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E31830-2D36-4B74-9309-93650C08AAD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E31830-2D36-4B74-9309-93650C08AAD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E31830-2D36-4B74-9309-93650C08AAD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F131C2C3-B4A2-4C03-9018-D180EFE91DD0}
+	EndGlobalSection
+EndGlobal
