@@ -44,9 +44,9 @@ namespace EnergyAccountManagement.DataAccess.Implementation
             await accountManagementDbContext.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Account accountToUpdate)
+        public async Task UpdateAsync(int accountId, Account accountToUpdate)
         {
-            var account = await accountManagementDbContext.Accounts.FirstOrDefaultAsync(t => t.AccountId == accountToUpdate.AccountId);
+            var account = await accountManagementDbContext.Accounts.FirstOrDefaultAsync(t => t.AccountId == accountId);
 
             if (account == null) throw new Exception("Account does not exist");
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace EnergyAccountManagement.Api.Controllers
 {
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/account-management")]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -19,9 +19,9 @@ namespace EnergyAccountManagement.Api.Controllers
             this.accountService = accountService;
         }
 
-        [HttpPost("SaveAccount")]
+        [HttpPost("accounts")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiResponseDto))]
-        public async Task<IActionResult> SaveAccountAsync([FromBody] AccountDto accountToSave)
+        public async Task<IActionResult> SaveAccountAsync(AccountDto accountToSave)
         {
             var response = await accountService.SaveAsync(accountToSave);
 
@@ -29,16 +29,16 @@ namespace EnergyAccountManagement.Api.Controllers
         }
 
 
-        [HttpPost("UpdateAccount")]
+        [HttpPost("accounts/{accountId}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiResponseDto))]
-        public async Task<IActionResult> UpdateAccountAsync([FromBody] AccountDto accountToUpdate)
+        public async Task<IActionResult> UpdateAccountAsync(int accountId, AccountDto accountToUpdate)
         {
-            var response = await accountService.UpdateAsync(accountToUpdate);
+            var response = await accountService.UpdateAsync(accountId, accountToUpdate);
 
             return Ok(response);
         }
 
-        [HttpGet("GetAccounts")]
+        [HttpGet("accounts")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [Produces(typeof(IEnumerable<AccountDto>))]
         public async Task<IActionResult> GetAccountsAsync()
@@ -48,7 +48,7 @@ namespace EnergyAccountManagement.Api.Controllers
             return Ok(response);
         }
 
-        [HttpGet("GetAccount/{accountId}")]
+        [HttpGet("accounts/{accountId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [Produces(typeof(AccountDto))]
         public async Task<IActionResult> GetAccountAsync(int accountId)

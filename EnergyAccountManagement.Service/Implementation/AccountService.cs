@@ -53,11 +53,11 @@ namespace EnergyAccountManagement.Service.Implementation
             return new ApiResponseDto();
         }
 
-        public async Task<ApiResponseDto> UpdateAsync(AccountDto accountToUpdate)
+        public async Task<ApiResponseDto> UpdateAsync(int accountId, AccountDto accountToUpdate)
         {
             var account = accountMapper.Map(accountToUpdate);
 
-            await accountDataAccess.UpdateAsync(account);
+            await accountDataAccess.UpdateAsync(accountId, account);
 
             return new ApiResponseDto();
         }

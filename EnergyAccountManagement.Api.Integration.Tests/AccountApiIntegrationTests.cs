@@ -24,7 +24,7 @@ namespace EnergyAccountManagement.Api.Integration.Tests
         {
             var accountDto = new AccountDto { AccountId = 1211, FirstName = "Pede", LastName = "Jade" };
 
-            var httpResponse = await httpClient.PostAsJsonAsync("/api/Account/SaveAccount", accountDto);
+            var httpResponse = await httpClient.PostAsJsonAsync("/api/account-management/accounts", accountDto);
 
             httpResponse.EnsureSuccessStatusCode();
 
@@ -40,7 +40,7 @@ namespace EnergyAccountManagement.Api.Integration.Tests
         {
             var accountDto = new AccountDto { FirstName = "Pede", LastName = "Jade" };
 
-            var httpResponse = await httpClient.PostAsJsonAsync("/api/Account/SaveAccount", accountDto);
+            var httpResponse = await httpClient.PostAsJsonAsync("/api/account-management/accounts", accountDto);
 
             httpResponse.EnsureSuccessStatusCode();
 
@@ -58,9 +58,11 @@ namespace EnergyAccountManagement.Api.Integration.Tests
         [Fact]
         public async Task UpdateAccount_Updates_Successfully_If_Data_Is_Valid()
         {
-            var accountDto = new AccountDto { AccountId = 1222, FirstName = "Johnny", LastName = "Mike" };
+            var accountId = 1222;
 
-            var httpResponse = await httpClient.PostAsJsonAsync("/api/Account/UpdateAccount", accountDto);
+            var accountDto = new AccountDto { AccountId = accountId, FirstName = "Johnny", LastName = "Mike" };
+
+            var httpResponse = await httpClient.PostAsJsonAsync($"/api/account-management/accounts/{accountId}", accountDto);
 
             httpResponse.EnsureSuccessStatusCode();
 
@@ -74,9 +76,11 @@ namespace EnergyAccountManagement.Api.Integration.Tests
         [Fact]
         public async Task UpdateAccount_Fails_If_Data_Is_NOT_Valid()
         {
-            var accountDto = new AccountDto { AccountId = 1222, FirstName = "Krhoqmphovggqapoxltginpxhhcdulogevxwkmdyjmgamxqmimu", LastName = "Mike" };
+            var accountId = 1222;
 
-            var httpResponse = await httpClient.PostAsJsonAsync("/api/Account/UpdateAccount", accountDto);
+            var accountDto = new AccountDto { AccountId = accountId, FirstName = "Krhoqmphovggqapoxltginpxhhcdulogevxwkmdyjmgamxqmimu", LastName = "Mike" };
+
+            var httpResponse = await httpClient.PostAsJsonAsync($"/api/account-management/accounts/{accountId}", accountDto);
 
             httpResponse.EnsureSuccessStatusCode();
 
@@ -94,9 +98,11 @@ namespace EnergyAccountManagement.Api.Integration.Tests
         [Fact]
         public async Task UpdateAccount_Fails_If_AccountId_Does_NOT_Exist()
         {
-            var accountDto = new AccountDto { AccountId = 1111, FirstName = "Karl", LastName = "Mike" };
+            var accountId = 1111;
 
-            var httpResponse = await httpClient.PostAsJsonAsync("/api/Account/UpdateAccount", accountDto);
+            var accountDto = new AccountDto { AccountId = accountId, FirstName = "Karl", LastName = "Mike" };
+
+            var httpResponse = await httpClient.PostAsJsonAsync($"/api/account-management/accounts/{accountId}", accountDto);
 
             var stringResponse = await httpResponse.Content.ReadAsStringAsync();
 
@@ -115,7 +121,7 @@ namespace EnergyAccountManagement.Api.Integration.Tests
         [Fact]
         public async Task GetAccounts_Returns_Data()
         {
-            var httpResponse = await httpClient.GetAsync("/api/Account/GetAccounts");
+            var httpResponse = await httpClient.GetAsync("/api/account-management/accounts");
 
             httpResponse.EnsureSuccessStatusCode();
 
@@ -133,7 +139,7 @@ namespace EnergyAccountManagement.Api.Integration.Tests
         [Fact]
         public async Task GetAccount_Returns_Data_If_Account_Exists()
         {
-            var httpResponse = await httpClient.GetAsync("/api/Account/GetAccount/1222");
+            var httpResponse = await httpClient.GetAsync("/api/account-management/accounts/1222");
 
             httpResponse.EnsureSuccessStatusCode();
 
@@ -149,7 +155,7 @@ namespace EnergyAccountManagement.Api.Integration.Tests
         [Fact]
         public async Task GetAccount_Does_NOT_Return_Data_If_Account_Does_Not_Exist()
         {
-            var httpResponse = await httpClient.GetAsync("/api/Account/GetAccount/1111");
+            var httpResponse = await httpClient.GetAsync("/api/account-management/accounts/1111");
 
             httpResponse.EnsureSuccessStatusCode();
 

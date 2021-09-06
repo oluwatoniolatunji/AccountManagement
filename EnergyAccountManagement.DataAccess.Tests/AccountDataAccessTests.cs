@@ -75,17 +75,19 @@ namespace EnergyAccountManagement.DataAccess.Tests
         public async Task UpdateAsync_Updates_Account_If_Account_Exists()
         {
             //Arrange
+            var accountId = 2367;
+
             var dbContext = await DbContextHelper.GetDbContext();
 
             IAccountDataAccess accountDataAccess = new AccountDataAccess(dbContext);
 
-            var accountToUpdate = new Account { AccountId = 2367, FirstName = "Graham", LastName = "Test" };
+            var accountToUpdate = new Account { AccountId = accountId, FirstName = "Graham", LastName = "Test" };
 
             //Act
-            await accountDataAccess.UpdateAsync(accountToUpdate);
+            await accountDataAccess.UpdateAsync(accountId, accountToUpdate);
 
             //Assert
-            var accountUpdated = await dbContext.Accounts.FirstOrDefaultAsync(a => a.AccountId == 2367);
+            var accountUpdated = await dbContext.Accounts.FirstOrDefaultAsync(a => a.AccountId == accountId);
 
             Assert.That(accountUpdated.FirstName, Is.EqualTo("Graham"));
 
@@ -96,14 +98,16 @@ namespace EnergyAccountManagement.DataAccess.Tests
         public async Task UpdateAsync_Throws_Exception_If_Account_Does_NOT_Exist()
         {
             //Arrange
+            var accountId = 9999;
+
             var dbContext = await DbContextHelper.GetDbContext();
 
             IAccountDataAccess accountDataAccess = new AccountDataAccess(dbContext);
 
-            var accountToUpdate = new Account { AccountId = 9999, FirstName = "Tony", LastName = "Test" };
+            var accountToUpdate = new Account { AccountId = accountId, FirstName = "Tony", LastName = "Test" };
 
             //Act
-            var exception = Assert.ThrowsAsync<Exception>(async () => await accountDataAccess.UpdateAsync(accountToUpdate));
+            var exception = Assert.ThrowsAsync<Exception>(async () => await accountDataAccess.UpdateAsync(accountId, accountToUpdate));
 
             //Assert
             Assert.That(exception.Message, Is.EqualTo("Account does not exist"));

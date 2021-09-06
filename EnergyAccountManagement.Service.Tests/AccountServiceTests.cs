@@ -156,13 +156,13 @@ namespace EnergyAccountManagement.Service.Tests
 
             var account = new Account { AccountId = accountId, LastName = "Test Last Name 3", FirstName = "Test First Name 3" };
 
-            mockAcountDataAccess.Setup(x => x.UpdateAsync(account)).Returns(Task.CompletedTask);
+            mockAcountDataAccess.Setup(x => x.UpdateAsync(accountId, account)).Returns(Task.CompletedTask);
 
             mockAccountMapper.Setup(x => x.Map(accountDto)).Returns(account);
 
             IAccountService accountService = new AccountService(mockAcountDataAccess.Object, mockAccountMapper.Object);
 
-            var response = await accountService.UpdateAsync(accountDto);
+            var response = await accountService.UpdateAsync(accountId, accountDto);
 
             Assert.That(response.IsSuccessful, Is.EqualTo(true));
 
@@ -178,13 +178,13 @@ namespace EnergyAccountManagement.Service.Tests
 
             var account = new Account { AccountId = accountId, LastName = "Test", FirstName = "Test" };
 
-            mockAcountDataAccess.Setup(x => x.UpdateAsync(account)).ThrowsAsync(new Exception("Account does not exist"));
+            mockAcountDataAccess.Setup(x => x.UpdateAsync(accountId, account)).ThrowsAsync(new Exception("Account does not exist"));
 
             mockAccountMapper.Setup(x => x.Map(accountDto)).Returns(account);
 
             IAccountService accountService = new AccountService(mockAcountDataAccess.Object, mockAccountMapper.Object);
 
-            var exception = Assert.ThrowsAsync<Exception>(async () => await accountService.UpdateAsync(accountDto));
+            var exception = Assert.ThrowsAsync<Exception>(async () => await accountService.UpdateAsync(accountId, accountDto));
 
             Assert.That(exception.Message, Is.EqualTo("Account does not exist"));
         }

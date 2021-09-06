@@ -7,7 +7,7 @@ namespace EnergyAccountManagement.Service.Contracts
     public interface IAccountService
     {
         Task<ApiResponseDto> SaveAsync(AccountDto accountToSave);
-        Task<ApiResponseDto> UpdateAsync(AccountDto accountToUpdate);
+        Task<ApiResponseDto> UpdateAsync(int accountId, AccountDto accountToUpdate);
         Task<ApiResponseDto> DeleteAsync(int accountId);
         Task<ApiResponseDto> GetAsync(int accountId);
         Task<ApiResponseDto> GetAllAsync();
