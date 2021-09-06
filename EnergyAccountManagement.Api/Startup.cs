@@ -71,16 +71,13 @@ namespace EnergyAccountManagement.Api
 
         public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseDeveloperExceptionPage();
 
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Account Management APIs");
+                c.SwaggerEndpoint("./v1/swagger.json", "Account Management APIs");
             });
 
             app.UseHttpsRedirection();
