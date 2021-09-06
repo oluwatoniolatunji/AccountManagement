@@ -120,6 +120,7 @@ namespace EnergyAccountManagement.DataAccess.Tests
             //Act
             var account = await accountDataAccess.GetAsync(2322);
 
+            //Assert
             Assert.That(account.FirstName, Is.EqualTo("First Name 2"));
 
             Assert.That(account.LastName, Is.EqualTo("Last Name 2"));
@@ -136,6 +137,7 @@ namespace EnergyAccountManagement.DataAccess.Tests
             //Act
             var account = await accountDataAccess.GetAsync(0999);
 
+            //Assert
             Assert.That(account, Is.Null);
         }
 
@@ -150,6 +152,7 @@ namespace EnergyAccountManagement.DataAccess.Tests
             //Act
             var accounts = await accountDataAccess.GetAllAsync();
 
+            //Assert
             Assert.That(accounts, Is.Not.Empty);
         }
 
@@ -164,6 +167,7 @@ namespace EnergyAccountManagement.DataAccess.Tests
             //Act
             var accounts = await accountDataAccess.GetAllAsync();
 
+            //Assert
             Assert.That(accounts, Is.Empty);
         }
     }
