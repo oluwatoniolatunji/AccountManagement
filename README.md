@@ -10,7 +10,7 @@ Account Management Microservice
 - Clone the repo
 - Open command prompt and cd to AccountManagement/EnergyAccountManagement.DataAccess
 - Run the script
-  dotnet ef --startup-project ../EnergyAccountManagement.Api migrations add CreateMeterReadingTable -c MeterReadingDbContext
+  dotnet ef --startup-project ../EnergyAccountManagement.Api migrations add CreateAccountTable -c AccountManagementDbContext
   dotnet ef --startup-project ../EnergyAccountManagement.Api database update
   
 ## API Configuration
